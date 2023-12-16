@@ -1,0 +1,2123 @@
+function Scoreboard.new 0
+push constant 6
+call Memory.alloc 1
+pop pointer 0
+push constant 15
+pop this 1
+push constant 50
+pop this 2
+push constant 100
+pop this 4
+push constant 4
+pop this 5
+push pointer 0
+return
+function Scoreboard.draw 0
+push argument 0
+pop pointer 0
+push this 2
+pop this 3
+push pointer 0
+call Scoreboard.drawPrefix 1
+pop temp 0
+push pointer 0
+push argument 1
+call Scoreboard.drawScore 2
+pop temp 0
+push constant 0
+return
+function Scoreboard.drawPrefix 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Scoreboard.blackout 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawS 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawC 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawZero 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawR 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawE 1
+pop temp 0
+push pointer 0
+call Scoreboard.drawColon 1
+pop temp 0
+push constant 0
+return
+function Scoreboard.drawScore 3
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Scoreboard.getScoreDigits 2
+pop local 0
+push constant 1
+pop local 2
+label WHILE_EXP0
+push local 2
+push constant 0
+push local 0
+add
+pop pointer 1
+push that 0
+push constant 1
+add
+lt
+not
+if-goto WHILE_END0
+push local 2
+push local 0
+add
+pop pointer 1
+push that 0
+pop local 1
+push local 1
+push constant 0
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+call Scoreboard.drawZero 1
+pop temp 0
+label IF_FALSE0
+push local 1
+push constant 1
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push pointer 0
+call Scoreboard.drawOne 1
+pop temp 0
+label IF_FALSE1
+push local 1
+push constant 2
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push pointer 0
+call Scoreboard.drawTwo 1
+pop temp 0
+label IF_FALSE2
+push local 1
+push constant 3
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push pointer 0
+call Scoreboard.drawThree 1
+pop temp 0
+label IF_FALSE3
+push local 1
+push constant 4
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push pointer 0
+call Scoreboard.drawFour 1
+pop temp 0
+label IF_FALSE4
+push local 1
+push constant 5
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push pointer 0
+call Scoreboard.drawFive 1
+pop temp 0
+label IF_FALSE5
+push local 1
+push constant 6
+eq
+if-goto IF_TRUE6
+goto IF_FALSE6
+label IF_TRUE6
+push pointer 0
+call Scoreboard.drawSix 1
+pop temp 0
+label IF_FALSE6
+push local 1
+push constant 7
+eq
+if-goto IF_TRUE7
+goto IF_FALSE7
+label IF_TRUE7
+push pointer 0
+call Scoreboard.drawSeven 1
+pop temp 0
+label IF_FALSE7
+push local 1
+push constant 8
+eq
+if-goto IF_TRUE8
+goto IF_FALSE8
+label IF_TRUE8
+push pointer 0
+call Scoreboard.drawEight 1
+pop temp 0
+label IF_FALSE8
+push local 1
+push constant 9
+eq
+if-goto IF_TRUE9
+goto IF_FALSE9
+label IF_TRUE9
+push pointer 0
+call Scoreboard.drawNine 1
+pop temp 0
+label IF_FALSE9
+push local 2
+push constant 1
+add
+pop local 2
+goto WHILE_EXP0
+label WHILE_END0
+push constant 0
+return
+function Scoreboard.getScoreDigits 2
+push argument 0
+pop pointer 0
+push constant 5
+call Array.new 1
+pop local 1
+push argument 1
+push constant 999
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1000
+pop argument 1
+push constant 0
+push local 1
+add
+push constant 4
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push local 1
+add
+push constant 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+return
+label IF_FALSE0
+push argument 1
+push constant 99
+gt
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push constant 0
+push local 1
+add
+push constant 3
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push argument 1
+push constant 100
+call Math.divide 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push argument 1
+push constant 100
+call MyMath.mod 2
+pop local 0
+push constant 2
+push local 1
+add
+push local 0
+push constant 10
+call Math.divide 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push local 1
+add
+push local 0
+push constant 10
+call MyMath.mod 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+return
+label IF_FALSE1
+push argument 1
+push constant 9
+gt
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push constant 0
+push local 1
+add
+push constant 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push argument 1
+push constant 10
+call Math.divide 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push local 1
+add
+push argument 1
+push constant 10
+call MyMath.mod 2
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+return
+label IF_FALSE2
+push constant 0
+push local 1
+add
+push constant 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push local 1
+add
+push argument 1
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push local 1
+return
+function Scoreboard.blackout 0
+push argument 0
+pop pointer 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push constant 0
+push constant 0
+push constant 511
+push constant 255
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function Scoreboard.drawS 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawC 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawR 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawE 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawColon 2
+push argument 0
+pop pointer 0
+push constant 1
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+push constant 0
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 0
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawZero 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push local 0
+add
+push this 4
+push local 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 5
+sub
+push this 4
+push this 3
+push local 0
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push local 1
+add
+push this 5
+sub
+push this 3
+push this 5
+add
+push this 4
+push local 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 5
+sub
+push this 4
+push local 1
+add
+push this 5
+sub
+push this 3
+push local 0
+add
+push this 4
+push local 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 5
+add
+push this 3
+push local 0
+add
+push this 5
+sub
+push this 4
+push local 1
+add
+push this 5
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawOne 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push local 0
+add
+push this 4
+push local 1
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push local 1
+add
+push this 5
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+not
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 3
+push local 0
+add
+push this 4
+push local 1
+add
+push this 5
+sub
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawTwo 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+add
+push this 3
+push this 5
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawThree 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+add
+push this 3
+push this 5
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 0
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawFour 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawFive 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawSix 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawSeven 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 4
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 2
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawEight 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+add
+push this 3
+push this 5
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 0
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.drawNine 2
+push argument 0
+pop pointer 0
+push constant 5
+push this 5
+call Math.multiply 2
+pop local 0
+push constant 7
+push this 5
+call Math.multiply 2
+pop local 1
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 3
+push this 5
+add
+push this 4
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 4
+push this 5
+add
+push this 3
+push this 5
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 3
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 0
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 5
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push this 5
+push constant 1
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 6
+call Math.multiply 2
+add
+push this 3
+push this 5
+push constant 4
+call Math.multiply 2
+add
+push this 4
+push this 5
+push constant 7
+call Math.multiply 2
+add
+call Screen.drawRectangle 4
+pop temp 0
+push this 3
+push local 0
+add
+push this 1
+add
+pop this 3
+push constant 0
+return
+function Scoreboard.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return

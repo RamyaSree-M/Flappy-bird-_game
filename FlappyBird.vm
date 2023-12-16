@@ -1,0 +1,631 @@
+function FlappyBird.new 0
+push constant 9
+call Memory.alloc 1
+pop pointer 0
+push argument 0
+pop this 0
+push constant 160
+pop this 1
+push constant 16
+pop this 2
+push constant 12
+pop this 3
+push constant 1
+pop this 4
+push pointer 0
+call FlappyBird.buildUpArray 1
+pop temp 0
+push pointer 0
+call FlappyBird.buildMidArray 1
+pop temp 0
+push pointer 0
+call FlappyBird.buildDownArray 1
+pop temp 0
+push pointer 0
+call FlappyBird.draw 1
+pop temp 0
+push pointer 0
+return
+function FlappyBird.moveUp 0
+push argument 0
+pop pointer 0
+push pointer 0
+call FlappyBird.erase 1
+pop temp 0
+push this 0
+push constant 30
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 30
+sub
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push constant 0
+pop this 0
+label IF_END0
+push constant 0
+return
+function FlappyBird.moveDown 0
+push argument 0
+pop pointer 0
+push pointer 0
+call FlappyBird.erase 1
+pop temp 0
+push this 0
+push constant 255
+push this 3
+sub
+push constant 5
+sub
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 0
+push constant 5
+add
+pop this 0
+goto IF_END0
+label IF_FALSE0
+push constant 255
+push this 3
+sub
+pop this 0
+label IF_END0
+push constant 0
+return
+function FlappyBird.erase 0
+push argument 0
+pop pointer 0
+push constant 0
+call Screen.setColor 1
+pop temp 0
+push this 1
+push this 0
+push this 1
+push this 2
+add
+push this 0
+push this 3
+add
+call Screen.drawRectangle 4
+pop temp 0
+push constant 0
+return
+function FlappyBird.buildUpArray 0
+push argument 0
+pop pointer 0
+push constant 12
+call Array.new 1
+pop this 5
+push constant 0
+push this 5
+add
+push constant 4032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 5
+add
+push constant 4656
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 5
+add
+push constant 8456
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 5
+add
+push constant 20766
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 5
+add
+push constant 20769
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 5
+add
+push constant 16961
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 5
+add
+push constant 959
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 5
+add
+push constant 32222
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 5
+add
+push constant 740
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 5
+add
+push constant 32252
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 5
+add
+push constant 31768
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 5
+add
+push constant 992
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function FlappyBird.buildMidArray 0
+push argument 0
+pop pointer 0
+push constant 12
+call Array.new 1
+pop this 6
+push constant 0
+push this 6
+add
+push constant 4032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 6
+add
+push constant 4656
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 6
+add
+push constant 8456
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 6
+add
+push constant 20740
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 6
+add
+push constant 20740
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 6
+add
+push constant 16958
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 6
+add
+push constant 959
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 6
+add
+push constant 32191
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 6
+add
+push constant 706
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 6
+add
+push constant 32252
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 6
+add
+push constant 31768
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 6
+add
+push constant 992
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function FlappyBird.buildDownArray 0
+push argument 0
+pop pointer 0
+push constant 12
+call Array.new 1
+pop this 7
+push constant 0
+push this 7
+add
+push constant 4032
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 1
+push this 7
+add
+push constant 4656
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 2
+push this 7
+add
+push constant 8456
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 3
+push this 7
+add
+push constant 20740
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 4
+push this 7
+add
+push constant 20740
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 5
+push this 7
+add
+push constant 16898
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 6
+push this 7
+add
+push constant 962
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 7
+push this 7
+add
+push constant 32191
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 8
+push this 7
+add
+push constant 735
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 9
+push this 7
+add
+push constant 32239
+neg
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 10
+push this 7
+add
+push constant 31774
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 11
+push this 7
+add
+push constant 992
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0
+push constant 0
+return
+function FlappyBird.cycleWingState 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 3
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push constant 1
+pop this 4
+goto IF_END0
+label IF_FALSE0
+push this 4
+push constant 1
+add
+pop this 4
+label IF_END0
+push constant 0
+return
+function FlappyBird.getBirdVector 0
+push argument 0
+pop pointer 0
+push this 4
+push constant 1
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push this 5
+return
+label IF_FALSE0
+push this 4
+push constant 2
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 6
+return
+label IF_FALSE1
+push this 7
+return
+function FlappyBird.draw 1
+push argument 0
+pop pointer 0
+push constant 16384
+push this 0
+push constant 32
+call Math.multiply 2
+add
+push this 1
+push constant 16
+call Math.divide 2
+add
+pop local 0
+push pointer 0
+call FlappyBird.getBirdVector 1
+pop this 8
+push local 0
+push constant 0
+add
+push constant 0
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 1
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 2
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 3
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 4
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 5
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 6
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 7
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 8
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 9
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 10
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 11
+push this 8
+add
+pop pointer 1
+push that 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function FlappyBird.getXOffset 0
+push argument 0
+pop pointer 0
+push this 1
+return
+function FlappyBird.getYOffset 0
+push argument 0
+pop pointer 0
+push this 0
+return
+function FlappyBird.getSizeX 0
+push argument 0
+pop pointer 0
+push this 2
+return
+function FlappyBird.getSizeY 0
+push argument 0
+pop pointer 0
+push this 3
+return
+function FlappyBird.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
